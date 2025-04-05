@@ -23,11 +23,11 @@ export const ChatAppProvider=({children})=>{
     const fetchData=async()=>{
         try {
             const contract = await connectingWithContract();
-            console.log(contract.target)
+            // console.log(contract.target)
             if (!contract) throw new Error("Contract not initialized");
 
             const connectAccount = await connectWallet();
-            console.log(connectAccount)
+            // console.log(connectAccount)
             setAccount(connectAccount);
 
             const userName=await contract.getUsername(connectAccount);
@@ -87,7 +87,7 @@ export const ChatAppProvider=({children})=>{
         }
     }
 
-    const createAccount=async({name,accountAddress})=>{
+    const createAccount=async({name,accountAddress,navigate})=>{
         try {
             // if(name || accountAddress){
             //     return setError("Name and account address,cannot be empty");
@@ -105,16 +105,19 @@ export const ChatAppProvider=({children})=>{
         }
     }
 
-    const addFriends=async({name,accountAddress})=>{
+    const addFriends=async({name,accountAddress,navigate})=>{
         try {
-            if(name||accountAddress) return setError("Please provide data");
+            // if(name||accountAddress) return setError("Please provide data");
+            const contract = await connectingWithContract();
+            // console.log(contract.target)
+            if (!contract) throw new Error("Contract not initialized");
 
             const addMyFriend=await contract.addFriend(accountAddress,name);
                 setLoading(true);
                 await addMyFriend.wait();
                 setLoading(false);
                 window.location.reload();
-                Router.push('/')
+                navigate("/")
         } catch (error) {
             console.log(`error at addfriend context ${error}`);
         }

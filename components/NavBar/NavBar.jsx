@@ -5,9 +5,11 @@ import style from './NavBar.module.css';
 import {ChatAppContext} from '../../Context/ChatAppContext'
 import {Model,Error} from "../Index";
 import img from "../../assets"
+import { useNavigate } from 'react-router-dom';
 
 
 function NavBar() {
+
   const menuItems = [
     {
       menu:"All users",
@@ -40,6 +42,8 @@ function NavBar() {
   const [openModel,setOpenModel]=useState(false);
 
   const {account,userName,connectWallet,createAccount,error}=useContext(ChatAppContext);
+
+  const navigate=useNavigate();
 
   return (
     <div className={style.NavBar}>
@@ -132,6 +136,7 @@ function NavBar() {
             image={img.hero} 
             functionName={createAccount} 
             address={account}>
+            navigate
           </Model>
         </div>
 

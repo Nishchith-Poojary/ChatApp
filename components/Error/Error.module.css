@@ -1,10 +1,10 @@
 
 .Error{
     font-family: "poppins-thin";
-    width: 100%;
-    height: 100%;
+    /* width: 100%;
+    height: 100%; */
     position: fixed;
-    inset:0% 0% 0% 0%;
+    inset:30% 30% 30% 30%;
     z-index: 111111111;
     margin:0 auto;
     text-align: center;
@@ -14,4 +14,5 @@
     box-shadow:5px 5px 10px #cd6f03,-5px -5px 10px #ff9703;
     text-align: center;
     color:red;
+    text-transform: capitalize;
 }

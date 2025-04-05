@@ -12,12 +12,13 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Filter></Filter>
-      <Friend></Friend>
+      {/* <Friend></Friend> */}
       <Routes>
-        <Route
+        {/* <Route
           path="/"
-          element={<h2 className="poppins-"></h2>}
-        />
+          element={<h2 className="poppins-regular"></h2>}
+        /> */}
+        <Route path='/' element={<Friend></Friend>} />
         <Route path='/allUser' element={<AllUser></AllUser>} />
       </Routes>
     </BrowserRouter>

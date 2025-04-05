@@ -1,5 +1,6 @@
 import React ,{useState,useContext}from 'react'
 import style from './Filter.module.css';
+import { useNavigate } from 'react-router-dom';
 
 import img from '../../assets';
 import { ChatAppContext } from '../../Context/ChatAppContext';
@@ -8,6 +9,7 @@ import Model from "../Model//Model"
 function Filter() {
   const {account,addFriends}=useContext(ChatAppContext)
   const [addFriend,setAddFriend]=useState(false);
+  const navigate=useNavigate();
   return (
     <div className={style.Filter}>
       <div className={style.Filter_box}>
@@ -34,6 +36,7 @@ function Filter() {
               smallInfo="Kindley select your friend name & address"
               image={img.hero}
               functionName={addFriends}
+              navigate
             >
               
             </Model>

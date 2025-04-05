@@ -4,7 +4,7 @@ import img from "../../assets/index"
 import {ChatAppContext} from '../../Context/ChatAppContext'
 import Loader from "../../components/Loader/Loader";
 
-function Model({openBox,title,head,info,smallInfo,image,functionName,address}) {
+function Model({openBox,title,head,info,smallInfo,image,functionName,address,navigate}) {
 
   const [name,setName]=useState("");
   const [accountAddress,setAccountAddress]=useState("");
@@ -50,7 +50,7 @@ function Model({openBox,title,head,info,smallInfo,image,functionName,address}) {
                 <button
                   onClick={() => {
                     console.log("name:", name, accountAddress, "model")
-                    functionName({name, accountAddress})
+                    functionName({name, accountAddress,navigate})
                   }}
                 >
                   {""}

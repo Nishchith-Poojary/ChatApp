@@ -6,14 +6,15 @@ import { ChatAppContext } from '../Context/ChatAppContext';
 
 function AllUser() {
     const {userLists,addFriends}=useContext(ChatAppContext);
+    // console.log("All users",userLists);
   return (
     <div>
-        <div className="alluser_info">
-            <h1>Find your Friends</h1>
+        <div className="alluser_info ">
+            <h1 className='poppins-regular'>Find your Friends</h1>
         </div>
         <div className="alluser">
             {userLists.map((el,i)=>{
-                <UserCard  key={i+1} el={el} i={i} addFriends={addFriends}/>
+                return <UserCard  key={i+1} el={el} i={i} addFriends={addFriends}/>
             })}
         </div>
     </div>
