@@ -43,38 +43,6 @@ export const ChatAppProvider=({children})=>{
         }
     }
 
-// const fetchData = async () => {
-//     try {
-//         const contract = await connectingWithContract();
-//         if (!contract) throw new Error("Contract not initialized");
-
-//         console.log("Contract Instance:", contract);
-
-//         const connectAccount = await connectWallet();
-//         if (!connectAccount || !ethers.isAddress(connectAccount)) {
-//             throw new Error(`Invalid address: ${connectAccount}`);
-//         }
-
-//         console.log("Connected Account:", connectAccount);
-
-//         const userName = await contract.getUsername(connectAccount);
-//         if (!userName) throw new Error(`Username not found for address: ${connectAccount}`);
-
-//         setAccount(connectAccount);
-//         setUserName(userName);
-
-//         const friendLists = await contract.getMyFriendList();
-//         setFriendLists(friendLists);
-
-//         const userList = await contract.getAllAppUser();
-//         setUserLists(userList);
-
-//     } catch (error) {
-//         console.error("Error in fetchData:", error.message);
-//         setError(error.message);
-//     }
-// };
-
 
 
     const readMessage=async(friendAddress)=>{
