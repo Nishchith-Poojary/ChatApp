@@ -125,7 +125,8 @@ export const ChatAppProvider=({children})=>{
 
     const sendMessage=async({msg,address})=>{
         try {
-            if(msg||address)return setError("please type your message");
+            console.log(msg)
+            // if(msg||address)return setError("please type your message");
 
             const contract=await connectingWithContract();
             const addMessage=await contract.sendMessage(address,msg);

@@ -57,18 +57,33 @@ contract ChatApp{
         _addFriend(friend_key,msg.sender,userList[msg.sender].name);
     }
 
-    function checkAlreadyFriends(address pubkey1,address pubkey2) internal view returns(bool){
-        if(userList[pubkey1].friendList.length>userList[pubkey2].friendList.length){
-            address temp=pubkey1;
-            pubkey1=pubkey2;
-            pubkey2=temp;
-        }
+    // function checkAlreadyFriends(address pubkey1,address pubkey2) internal view returns(bool){
+    //     if(userList[pubkey1].friendList.length>userList[pubkey2].friendList.length){
+    //         address temp=pubkey1;
+    //         pubkey1=pubkey2;
+    //         pubkey2=temp;
+    //     }
 
-        for(uint256 i=0;i<userList[pubkey1].friendList.length;i++){
-            if(userList[pubkey1].friendList[1].pubkey==pubkey2) return true;
-        }
-        return false;
+    //     for(uint256 i=0;i<userList[pubkey1].friendList.length;i++){
+    //         if(userList[pubkey1].friendList[1].pubkey==pubkey2) return true;
+    //     }
+    //     return false;
+    // }
+
+    function checkAlreadyFriends(address pubkey1, address pubkey2) internal view returns (bool) {
+    if (userList[pubkey1].friendList.length > userList[pubkey2].friendList.length) {
+        address temp = pubkey1;
+        pubkey1 = pubkey2;
+        pubkey2 = temp;
     }
+
+    for (uint256 i = 0; i < userList[pubkey1].friendList.length; i++) {
+        if (userList[pubkey1].friendList[i].pubkey == pubkey2) return true;
+    }
+
+    return false;
+    }
+
 
     function _addFriend(address me,address friend_key,string memory name) internal {
         friend memory newFriend=friend(friend_key,name);

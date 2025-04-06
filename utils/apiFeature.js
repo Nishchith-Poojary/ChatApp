@@ -91,9 +91,10 @@ export const connectingWithContract = async () => {
 
 
 export const ConvertTime = (time) => {
-    const timestamp = time.toNumber ? time.toNumber() : time;
-    const newTime = new Date(timestamp);
-    
+    const timestamp = typeof time === "bigint" ? Number(time) : (time.toNumber ? time.toNumber() : time);
+    const newTime = new Date(timestamp * 1000); // Assuming blockchain timestamp in seconds
+
     return `${newTime.getHours()}/${newTime.getMinutes()}/${newTime.getSeconds()} 
     Date: ${newTime.getDate()}/${newTime.getMonth() + 1}/${newTime.getFullYear()}`;
 };
+

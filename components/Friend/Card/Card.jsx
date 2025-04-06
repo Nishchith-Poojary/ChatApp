@@ -1,17 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import style from "./Card.module.css";
+import img from '../../../assets'
 
-const Card = ({ el }) => {
+const Card = ({ el ,i,readMessage,readUser}) => {
   return (
-    <Link 
-      to={{
-        pathname: "/",
-        state: { name: el.name, address: el.pubkey }
-      }}
-      className={style.card}
-
-    >
+      <Link 
+        to="/"
+        state={{ name: el.name, address: el.pubkey }}
+        className={style.card}
+      >
         <div className={style.Card} onClick={()=>{
             readMessage(el.pubkey),readUser(el.pubkey)
         }}>
